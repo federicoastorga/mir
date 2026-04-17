@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mirlenys — Portafolio</title>
-<meta name="description" content="Mirlenys. Del servicio al cliente al software. Construyendo con IA." />
+<meta name="description" content="Mirlenys Rodríguez. Especialista Smart en Octopus Energy. Del servicio al cliente al software." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -23,7 +23,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -36,7 +35,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Subtle grain texture */
   body::before {
     content: "";
     position: fixed;
@@ -44,16 +42,14 @@
     pointer-events: none;
     opacity: 0.04;
     z-index: 1;
-    background-image:
-      repeating-linear-gradient(0deg, rgba(42, 22, 48, 1) 0 1px, transparent 1px 3px);
+    background-image: repeating-linear-gradient(0deg, rgba(42, 22, 48, 1) 0 1px, transparent 1px 3px);
     mix-blend-mode: multiply;
   }
 
   a { color: var(--text); text-decoration: none; }
-
   ::selection { background: var(--accent); color: var(--bg); }
 
-  /* ========== TICKER BAR ========== */
+  /* ========== TICKER ========== */
   .ticker {
     background: var(--accent);
     color: var(--bg);
@@ -68,7 +64,7 @@
   .ticker-track {
     display: inline-flex;
     gap: 3rem;
-    animation: marquee 28s linear infinite;
+    animation: marquee 32s linear infinite;
     padding-left: 3rem;
   }
   .ticker-track span { text-transform: uppercase; font-weight: 500; }
@@ -114,9 +110,9 @@
   }
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     font-family: var(--mono);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
@@ -138,12 +134,6 @@
     padding: 5rem 2rem 6rem;
     position: relative;
     z-index: 2;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
-    align-items: end;
   }
   .hero-label {
     font-family: var(--mono);
@@ -168,13 +158,21 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
   }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
   .hero h1 {
     font-family: var(--sans);
     font-weight: 500;
     font-size: clamp(3.25rem, 9vw, 7rem);
     line-height: 0.95;
     letter-spacing: -0.045em;
-    margin: 0;
+    margin: 0 0 1.5rem;
     font-variation-settings: "opsz" 96;
   }
   .hero h1 .accent {
@@ -197,16 +195,81 @@
     background: var(--accent);
     transform: rotate(-3deg);
   }
-  .hero-side {
-    font-family: var(--mono);
-    font-size: 0.82rem;
+
+  .hero-bio {
+    font-size: 1.05rem;
     color: var(--muted);
-    line-height: 1.7;
-    max-width: 220px;
-    border-left: 1px solid var(--line);
-    padding-left: 1.25rem;
+    max-width: 560px;
+    margin: 0;
+    line-height: 1.65;
   }
-  .hero-side strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 0.35rem; }
+  .hero-bio strong { color: var(--text); font-weight: 500; }
+
+  /* Photo column */
+  .hero-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .hero-photo {
+    width: 240px;
+    height: 300px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--surface-2);
+  }
+  .hero-photo-placeholder .initials {
+    font-family: var(--sans);
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .hero-photo-placeholder .ph-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .hero-photo-caption {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.55;
+    max-width: 220px;
+  }
+  .hero-photo-caption strong {
+    display: block;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    font-size: 0.82rem;
+  }
 
   .hero-bottom {
     margin-top: 4rem;
@@ -225,10 +288,7 @@
     color: var(--text);
     margin: 0;
   }
-  .hero-tagline em {
-    color: var(--accent);
-    font-style: italic;
-  }
+  .hero-tagline em { color: var(--accent); font-style: italic; }
   .cta {
     display: inline-flex;
     align-items: center;
@@ -286,7 +346,7 @@
     font-weight: 700;
   }
 
-  /* ========== ABOUT ========== */
+  /* ========== SOBRE MÍ ========== */
   .about-grid {
     display: grid;
     grid-template-columns: 140px 1fr 1fr;
@@ -331,7 +391,48 @@
     margin-top: 0.75rem;
   }
 
-  /* ========== PROJECTS ========== */
+  /* ========== HABILIDADES ========== */
+  .skills-body {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+  }
+  .skills-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .skill-cat-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: var(--surface);
+    letter-spacing: 0.02em;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .skill-tag:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .skill-tag.growing {
+    border-style: dashed;
+    color: var(--muted);
+  }
+  .skill-tag.growing::before { content: "↑ "; color: #0d9488; }
+
+  /* ========== PROYECTOS ========== */
   .projects {
     display: flex;
     flex-direction: column;
@@ -396,6 +497,54 @@
   }
   .project:hover .project-arrow { color: var(--accent); transform: translate(4px, -4px); }
 
+  /* ========== HERRAMIENTAS ========== */
+  .tools-body {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+  }
+  .tools-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .tools-group-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+  .tool-card {
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid var(--line);
+    min-width: 160px;
+    transition: background 0.2s;
+  }
+  .tool-card:last-child { border-right: none; }
+  .tool-card:hover { background: var(--surface); }
+  .tool-name {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .tool-use {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
   /* ========== CONTACT ========== */
   .contact {
     padding: 6rem 2rem 7rem;
@@ -419,11 +568,7 @@
     letter-spacing: -0.04em;
     margin: 0;
   }
-  .contact h2 em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 700;
-  }
+  .contact h2 em { font-style: italic; color: var(--accent); font-weight: 700; }
   .contact-info {
     font-family: var(--mono);
     font-size: 0.88rem;
@@ -466,16 +611,25 @@
   }
 
   /* ========== MOBILE ========== */
-  @media (max-width: 840px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-photo-col { flex-direction: row; align-items: flex-start; gap: 1.5rem; }
+    .hero-photo { width: 120px; height: 150px; }
+    .hero-photo-caption { text-align: left; }
     .hero-bottom { flex-direction: column; align-items: flex-start; }
     .section-head { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-column: 1 / -1; grid-template-columns: 1fr; }
     .stat { border-right: none; border-bottom: 1px solid var(--line); }
     .stat:last-child { border-bottom: none; }
+    .skills-body { grid-template-columns: 1fr; }
+    .skills-cols { grid-template-columns: 1fr; gap: 2rem; }
     .project { grid-template-columns: auto 1fr auto; }
     .project-tag { display: none; }
+    .tools-body { grid-template-columns: 1fr; }
+    .tools-row { flex-direction: column; }
+    .tool-card { border-right: none; border-bottom: 1px solid var(--line); }
+    .tool-card:last-child { border-bottom: none; }
     .contact-inner { grid-template-columns: 1fr; }
     .footer { flex-direction: column; gap: 0.5rem; }
   }
@@ -486,6 +640,7 @@
   .r2 { animation-delay: 0.15s; }
   .r3 { animation-delay: 0.25s; }
   .r4 { animation-delay: 0.35s; }
+  .r5 { animation-delay: 0.45s; }
   @keyframes rv { to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
@@ -494,15 +649,15 @@
   <div class="ticker">
     <div class="ticker-track">
       <span>Disponible para colaborar</span>
-      <span>Aprendiendo cada día</span>
+      <span>Especialista Smart · Octopus Energy</span>
       <span>Del cliente al código</span>
       <span>Construyendo con IA</span>
-      <span>Mentoría entre pares</span>
+      <span>Energía inteligente & desarrollo</span>
       <span>Disponible para colaborar</span>
-      <span>Aprendiendo cada día</span>
+      <span>Especialista Smart · Octopus Energy</span>
       <span>Del cliente al código</span>
       <span>Construyendo con IA</span>
-      <span>Mentoría entre pares</span>
+      <span>Energía inteligente & desarrollo</span>
     </div>
   </div>
 
@@ -510,43 +665,64 @@
     <div class="nav-logo">Mirlenys <small>/ portafolio · 26</small></div>
     <nav class="nav-links">
       <a href="#sobre-mi">01 · Sobre mí</a>
-      <a href="#proyectos">02 · Proyectos</a>
-      <a href="#contacto">03 · Contacto</a>
+      <a href="#habilidades">02 · Habilidades</a>
+      <a href="#proyectos">03 · Proyectos</a>
+      <a href="#herramientas">04 · Herramientas</a>
+      <a href="#contacto">05 · Contacto</a>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-label reveal r1">Disponible · Santo Domingo, RD</div>
     <div class="hero-grid">
-      <h1 class="reveal r2">
-        Del <span class="strike">servicio</span><br />
-        al <span class="accent">software.</span>
-      </h1>
-      <aside class="hero-side reveal r3">
-        <strong>Mirlenys Rodríguez</strong>
-        Atención al cliente &amp; desarrolladora en formación. Aprendiendo a construir con IA, sin perder el enfoque humano.
-      </aside>
+
+      <div class="reveal r2">
+        <h1>
+          Del <span class="strike">servicio</span><br />
+          al <span class="accent">software.</span>
+        </h1>
+        <p class="hero-bio">
+          <strong>Especialista Smart en Octopus Energy.</strong> Resuelvo casos técnicos complejos de energía inteligente y vehículos eléctricos — y en paralelo, construyo mis propias herramientas con HTML y Claude. Vengo del mundo del cliente y eso cambia cómo pienso cada solución.
+        </p>
+      </div>
+
+      <div class="hero-photo-col reveal r3">
+        <div class="hero-photo">
+          <!-- Reemplaza con tu foto: <img src="images/foto.jpg" alt="Mirlenys Rodríguez"> -->
+          <div class="hero-photo-placeholder">
+            <span class="initials">MR</span>
+            <span class="ph-label">Añade tu foto</span>
+          </div>
+        </div>
+        <div class="hero-photo-caption">
+          <strong>Mirlenys Rodríguez</strong>
+          Especialista Smart · Octopus Energy<br />
+          Aprendiendo desarrollo con IA
+        </div>
+      </div>
+
     </div>
     <div class="hero-bottom reveal r4">
       <p class="hero-tagline">
-        Escucho primero, construyo después. <em>Ayudo a que más personas se animen a empezar</em> — sin jerga, sin miedo, con mucha paciencia.
+        Escucho primero, construyo después. <em>Cuando algo falta en el equipo, lo creo yo.</em> Sin esperar a que alguien me lo dé hecho.
       </p>
       <a href="#contacto" class="cta">Trabajemos juntos</a>
     </div>
   </section>
 
+  <!-- SOBRE MÍ -->
   <section id="sobre-mi" class="section">
     <div class="section-head">
       <div class="section-num">(01) Sobre mí</div>
-      <h2>Años escuchando a las personas. Ahora, <em>aprendiendo a construir para ellas.</em></h2>
+      <h2>Del cliente al código — <em>sin dejar de escuchar.</em></h2>
     </div>
     <div class="about-grid">
       <div></div>
       <p>
-        <strong>Empecé en atención al cliente</strong> y descubrí algo: detrás de cada consulta hay alguien que solo quiere sentirse entendido. Esa mirada se volvió mi brújula — la llevo a todo lo que construyo.
+        <strong>Llevo años en atención al cliente y soporte técnico</strong>, primero en ventas y luego como Especialista Smart en Octopus Energy, donde resuelvo los casos técnicos que el equipo no puede resolver: diagnóstico de logs en el CRM Kraken, coordinación con proveedores de carga (V2C, Wallbox, Tesla) y formación interna del equipo.
       </p>
       <p>
-        <strong>Hoy aprendo desarrollo de software</strong> con ayuda de la inteligencia artificial. Documento cada paso en público para que otras personas sin perfil técnico se animen a empezar. La tecnología no debería sentirse como un club cerrado.
+        <strong>Aprendiendo desarrollo de software</strong> de forma autodidacta con ayuda de IA. Ya he construido herramientas reales para mi trabajo — una guía interactiva HTML con 30+ fichas de casos, una base de conocimiento técnica con 500+ líneas de documentación. Ahora quiero ir más lejos.
       </p>
       <div class="about-stats">
         <div class="stat">
@@ -554,20 +730,80 @@
           <div class="stat-label">Años en servicio al cliente</div>
         </div>
         <div class="stat">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Ganas de aprender</div>
+          <div class="stat-num">30<em>+</em></div>
+          <div class="stat-label">Fichas de casos documentadas</div>
         </div>
         <div class="stat">
-          <div class="stat-num"><em>1</em></div>
-          <div class="stat-label">Persona a la vez</div>
+          <div class="stat-num"><em>1.3k</em></div>
+          <div class="stat-label">Casos analizados</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="section">
+    <div class="section-head">
+      <div class="section-num">(02) Habilidades</div>
+      <h2>Lo que sé hacer — <em>y lo que estoy construyendo.</em></h2>
+    </div>
+    <div class="skills-body">
+      <div></div>
+      <div class="skills-cols">
+
+        <div>
+          <div class="skill-cat-label">Técnico — en uso</div>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">Markdown</span>
+            <span class="skill-tag">Análisis de logs</span>
+            <span class="skill-tag">Diagnóstico IoT</span>
+            <span class="skill-tag">CRM Kraken</span>
+            <span class="skill-tag">Prompting con IA</span>
+            <span class="skill-tag">Gestión de datos</span>
+            <span class="skill-tag">Google Suite</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-cat-label">Técnico — en crecimiento</div>
+          <div class="skill-tags">
+            <span class="skill-tag growing">Claude Code</span>
+            <span class="skill-tag growing">JavaScript</span>
+            <span class="skill-tag growing">Git / GitHub</span>
+            <span class="skill-tag growing">Desarrollo web</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-cat-label">Profesional</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Comunicación técnica</span>
+            <span class="skill-tag">Resolución de problemas</span>
+            <span class="skill-tag">Documentación</span>
+            <span class="skill-tag">Formación de equipos</span>
+            <span class="skill-tag">Atención al cliente</span>
+            <span class="skill-tag">Coordinación de incidencias</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-cat-label">Idiomas</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Español — nativo</span>
+            <span class="skill-tag growing">Inglés — en desarrollo</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
   <section id="proyectos" class="section">
     <div class="section-head">
-      <div class="section-num">(02) Proyectos</div>
+      <div class="section-num">(03) Proyectos</div>
       <h2>Lo que estoy <em>construyendo</em> ahora mismo.</h2>
     </div>
     <div class="projects">
@@ -575,51 +811,124 @@
       <a href="#" class="project">
         <div class="project-num">01 / 03</div>
         <div class="project-body">
-          <h3>Del cliente al código</h3>
-          <p>Bitácora pública donde documento mi transición profesional — herramientas, aciertos y errores. Actualizada cada semana.</p>
+          <h3>Guía interactiva IOGo</h3>
+          <p>Herramienta HTML con 30+ fichas de casos reales, buscador, filtros y notas internas. Creada desde cero porque el equipo no tenía nada parecido — nadie me la pidió.</p>
         </div>
-        <div class="project-tag">Bitácora</div>
+        <div class="project-tag">Herramienta interna</div>
         <div class="project-arrow">↗</div>
       </a>
 
       <a href="#" class="project">
         <div class="project-num">02 / 03</div>
         <div class="project-body">
-          <h3>IA sin misterios</h3>
-          <p>Guía práctica para quienes nunca han tocado código. Pensada para acompañar, no para asustar.</p>
+          <h3>Knowledge base técnica</h3>
+          <p>Base de conocimiento en Markdown con 500+ líneas: cómo funciona IOGo, cómo leer logs, patrones de diagnóstico y 30+ casos resueltos. Documentación técnica real.</p>
         </div>
-        <div class="project-tag">Guía</div>
+        <div class="project-tag">Documentación</div>
         <div class="project-arrow">↗</div>
       </a>
 
       <a href="#" class="project">
         <div class="project-num">03 / 03</div>
         <div class="project-body">
-          <h3>Mentoría entre pares</h3>
-          <p>Un espacio de acompañamiento para cambios de carrera hacia tecnología. Sin jerarquías, con mucho respeto.</p>
+          <h3>Análisis de workflow interno</h3>
+          <p>Revisión y análisis de más de 1.300 casos del registro interno para identificar patrones, gaps de documentación y mejoras en el proceso del equipo.</p>
         </div>
-        <div class="project-tag">Comunidad</div>
+        <div class="project-tag">Análisis</div>
         <div class="project-arrow">↗</div>
       </a>
 
     </div>
   </section>
 
+  <!-- HERRAMIENTAS -->
+  <section id="herramientas" class="section">
+    <div class="section-head">
+      <div class="section-num">(04) Herramientas</div>
+      <h2>Con qué <em>trabajo</em> cada día.</h2>
+    </div>
+    <div class="tools-body">
+      <div></div>
+      <div class="tools-groups">
+
+        <div>
+          <div class="tools-group-label">IA & Desarrollo</div>
+          <div class="tools-row">
+            <div class="tool-card">
+              <div class="tool-name">Claude</div>
+              <div class="tool-use">Resolución de casos, documentación y aprendizaje</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Claude Code</div>
+              <div class="tool-use">Proyectos personales — en aprendizaje activo</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Google Gemini</div>
+              <div class="tool-use">Redacción y generación de contenido</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="tools-group-label">Desarrollo web</div>
+          <div class="tools-row">
+            <div class="tool-card">
+              <div class="tool-name">HTML / CSS</div>
+              <div class="tool-use">Guías interactivas y proyectos web</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Markdown</div>
+              <div class="tool-use">Documentación técnica estructurada</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="tools-group-label">Trabajo & Productividad</div>
+          <div class="tools-row">
+            <div class="tool-card">
+              <div class="tool-name">Kraken CRM</div>
+              <div class="tool-use">Gestión de clientes, logs y diagnóstico técnico</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Inksacio</div>
+              <div class="tool-use">Análisis de datos de carga de VE</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Asana</div>
+              <div class="tool-use">Gestión de tickets e incidencias</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Google Suite</div>
+              <div class="tool-use">Documentación y productividad</div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Slack</div>
+              <div class="tool-use">Comunicación interna del equipo</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
   <section id="contacto" class="contact">
-    <div class="section-num" style="margin-bottom: 2.5rem;">(03) Contacto</div>
+    <div class="section-num" style="margin-bottom: 2.5rem;">(05) Contacto</div>
     <div class="contact-inner">
       <h2>¿Hablamos?<br /><em>Me encantaría.</em></h2>
       <div class="contact-info">
-        <a href="mailto:hola@mirlenys.com"><span>Email</span><span>hola@mirlenys.com →</span></a>
+        <a href="mailto:mirlenysgutierrez1@gmail.com"><span>Email</span><span>mirlenysgutierrez1@gmail.com →</span></a>
         <a href="#"><span>LinkedIn</span><span>/in/mirlenys →</span></a>
         <a href="#"><span>Instagram</span><span>@mirlenys →</span></a>
-        <a href="#"><span>Substack</span><span>del-cliente-al-codigo →</span></a>
+        <a href="#"><span>GitHub</span><span>@mirlenys →</span></a>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <span>© <span id="year"></span> Mirlenys</span>
+    <span>© <span id="year"></span> Mirlenys Rodríguez</span>
     <span>Hecho a mano · Santo Domingo, RD</span>
   </footer>
 
